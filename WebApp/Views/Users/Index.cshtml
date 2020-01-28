@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Microsoft.Graph.User>
+
+@{
+    ViewBag.Current = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Users</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">DisplayName</th>
+            <th scope="col">Mail</th>
+        </tr>
+    </thead>
+    <tbody>
+        @Html.ActionLink("Add User", "Create", "Users", new { area = "" }, new { @class = "btn btn-primary btn-large" })
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.DisplayName</td>
+                <td>@item.Mail</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
